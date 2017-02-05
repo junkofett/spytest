@@ -1,5 +1,8 @@
 ﻿/*#region Override background color theme */
 
+
+
+
 /*For Bootstrap 3*/
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
@@ -76,7 +79,7 @@ textarea.form-control {
     /*width: 205px;*/
     display: inline;
     display: block;
-    width: 50%;
+    //width: 50%;
     max-width: 30em;
 }
 
@@ -193,7 +196,7 @@ small {
 }
 
 .widget-content {
-    padding: 1em;
+   // padding: 1em;
     margin: 0;
 }
 

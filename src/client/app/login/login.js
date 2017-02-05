@@ -20,11 +20,12 @@
         }
 
         function submit(){
-            console.log(loginForm.$valid);
-
-            if(loginservice.login(vm.user)){
+            let resp = loginservice.login(vm.user);
+            if(resp === true){
                 $location.path('/user');
-                console.log($rootScope.token);
+                $rootScope.token = 1;
+            }else{
+                angular.element.find('#button-submit').addClass('error');
             }
             //console.log(dataservice.getRandomUser());            
         }

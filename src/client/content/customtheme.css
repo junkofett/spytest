@@ -781,14 +781,16 @@ form {
 
 
 /* Main */
-
+.photo img{
+    border-radius: 100%;
+}
 .mainbar {
     position: relative;
-    margin-left: 230px;
+    //margin-left: 230px;
     margin-right: 0;
     width: auto;
     background: #fff;
-    min-height: 900px;
+    min-height: 100%;
 }
 
     .mainbar .container {

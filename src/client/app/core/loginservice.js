@@ -19,8 +19,11 @@
         return service;
 
         function login(user){
-            $rootScope.token = 1;
-            return user.password == '1234';
+            if(user.password == '1234' && user.name == 'tyler'){
+                return true;
+            }else{
+                return 'Wrong username or password.'
+            }
         }
 
         function isLogged(){

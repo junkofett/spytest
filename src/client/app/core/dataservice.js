@@ -15,12 +15,13 @@
             getAvengerCount: getAvengerCount,
             getAvengers: getAvengers,
             getRandomUser: getRandomUser,
+            getRandomUsers: getRandomUsers,
             ready: ready
         };
 
         return service;
 
-        function getRandomUser(user){
+        function getRandomUser(){
             
             return $http.get('https://randomuser.me/api/')
                 .then(getUserComplete)
@@ -29,6 +30,19 @@
                 });
 
             function getUserComplete(data, status, headers, config) {
+                return data.data.results;
+            }
+        }
+
+        function getRandomUsers(){
+            
+            return $http.get('https://randomuser.me/api/?results=5')
+                .then(getUsersComplete)
+                .catch(function(message) {
+                    exception.catcher('XHR Failed for getAvengers')(message);
+                });
+
+            function getUsersComplete(data, status, headers, config) {
                 return data.data.results;
             }
         }

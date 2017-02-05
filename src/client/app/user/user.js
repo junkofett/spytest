@@ -11,21 +11,26 @@
         var vm   = this;
         vm.title = 'User';
         vm.user  = {};
+        vm.users = {};
 
-        activate();
+        (!loginservice.isLogged()) ? $location.path('/login') : activate();
 
         function activate() {
-            if(!loginservice.isLogged()){
-                $location.path('/login');
-            }else{
-                logger.info('Activated User View');
-                getRandomUser();
-            }
+            logger.info('Activated User View');
+            getUsers();
         }
 
-        function getRandomUser(){
-            dataservice.getRandomUser().then(function(data) {                
+        function getUser(){
+            dataservice.getRandomUser().then(function(data) { 
+                console.log(data);               
                 return vm.user = data;
+            });
+        }
+
+        function getUsers(){
+            dataservice.getRandomUsers().then(function(data) {                
+                console.log(data);
+                return vm.users = data;
             });
         }
     }
