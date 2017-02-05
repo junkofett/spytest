@@ -15,7 +15,7 @@
 							<div class="login-form-1">
 								<form id="loginForm" name="loginForm" class="text-left"	
 									novalidate
-									data-ng-submit="loginForm.$valid && vm.submit()">
+									data-ng-submit="!vm.loginForm.$touched && vm.loginForm.$valid && vm.submit()">
 
 									<div class="login-form-main-message"></div>
 									<div class="main-login-form">
@@ -23,23 +23,30 @@
 											<div class="form-group">
 												<label for="lg_username" class="sr-only">Username</label>
 												<input type="text" class="form-control" 
-													id="lg_username" name="lg_username" placeholder="username"
-													data-ng-model="vm.user.name"
+													id="lg_username" name="user.name" placeholder="username"
+													data-ng-model="vm.loginForm.user.name"
 													data-ng-required="true">
 
 											</div>
 											<div class="form-group">
 												<label for="lg_password" class="sr-only">Password</label>
-												<input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password"
-														data-ng-model="vm.user.password"
+												<input type="password" class="form-control" id="lg_password" 
+														name="user.password" placeholder="password"
+														data-ng-model="vm.loginForm.user.password"
+														wrong-credentials="false"
 														data-ng-required="true">
+														<div data-ng-show="vm.loginForm.user.password.$error.wrongCredentials">
+															MAAAAAAAAAAAL
+														</div>
 											</div>
 										</div>
 
+										<login-submit></login-submit>
+
 										<!-- <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button> -->
-										<button id="button-submit" class="btn btn-default btn-block" type="submit" value="Login"
-												data-ng-disabled="loginForm.$invalid">Login</button>
-										<login-button></login-button>
+									<!--	<button id="button-submit" class="btn btn-default btn-block" type="submit" value="Login"
+												data-ng-disabled="vm.loginForm.$invalid">Login</button>
+									-->
 									</div>
 								</form>
 	</div>

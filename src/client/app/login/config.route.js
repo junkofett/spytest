@@ -15,7 +15,7 @@
     function getRoutes() {
         return [
             {
-                url: '/login',
+                url: '/',
                 config: {
                     templateUrl: 'app/login/login.html',
                     controller: 'Login',
